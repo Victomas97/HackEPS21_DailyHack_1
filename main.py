@@ -31,6 +31,6 @@ im1 = Image.open('logo_hack.png').resize((w * 2, h * 2)).filter(ImageFilter.EDGE
 im = Image.composite(ImageOps.invert(bitmap), ImageOps.invert(Image.composite(ImageOps.invert(bitmap), Image.new("RGB", (w * 2, h * 2), "black"), Image.new("L", im1.size, 40))), im1)
 
 draw = ImageDraw.Draw(im)
-draw.rectangle((0, 0, (w * 2, h * 2)), width=33, outline='black')
-draw.rectangle((0, 0, (w * 2, h * 2)), width=25, outline='white')
+draw.rectangle((0, 0, (w * 2, h * 2)), width=42, outline='black')
+draw.rectangle((0, 0, (w * 2, h * 2)), width=27, outline='white')
 ImageOps.invert(im).filter(ImageFilter.EDGE_ENHANCE_MORE).filter(ImageFilter.SMOOTH).save('result.png')
