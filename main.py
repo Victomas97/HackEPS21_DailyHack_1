@@ -33,12 +33,4 @@ im = Image.composite(ImageOps.invert(bitmap), ImageOps.invert(Image.composite(Im
 draw = ImageDraw.Draw(im)
 draw.rectangle((0, 0, (w * 2, h * 2)), width=42, outline='black')
 draw.rectangle((0, 0, (w * 2, h * 2)), width=27, outline='white')
-result = ImageOps.invert(im).filter(ImageFilter.EDGE_ENHANCE_MORE).filter(ImageFilter.SMOOTH)
-pixdata = result.load()
-
-for i in range(w * 2):
-    for j in range(h * 2):
-        if pixdata[i, j] == (40, 40, 40, 0):
-            pixdata[i, j] = (0, 0, 0, 255)
-
-result.save('result.png')
+result = ImageOps.invert(im).filter(ImageFilter.EDGE_ENHANCE_MORE).filter(ImageFilter.SMOOTH).save('result.png')
